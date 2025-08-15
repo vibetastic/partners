@@ -1,323 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>VibeTastic Partner</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: "Segoe UI", sans-serif;
-      margin: 0;
-      padding: 0px 0px 200px 0px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VibeTastic Partnerprogramm</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  body { line-height: 1.6; color: #333; background: #f9f9fc; }
+  a { text-decoration: none; color: inherit; }
+  header { background: #6c63ff; color: #fff; padding: 50px 20px; text-align: center; }
+  header h1 { font-size: 2.8rem; margin-bottom: 10px; }
+  header p { font-size: 1.2rem; margin-bottom: 20px; }
+  header button { padding: 15px 30px; font-size: 1rem; border: none; border-radius: 8px; background: #fff; color: #6c63ff; cursor: pointer; transition: all 0.3s; }
+  header button:hover { background: #e0e0ff; }
+  
+  section { padding: 80px 20px; max-width: 1200px; margin: auto; }
+  .features { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+  .feature { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); flex: 1 1 300px; text-align: center; transition: transform 0.3s; }
+  .feature:hover { transform: translateY(-5px); }
+  .feature h3 { margin-bottom: 15px; color: #6c63ff; }
+  .feature p { color: #666; }
 
-    /* Hintergrundvideo global fixieren */
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.1;
-      pointer-events: none;
-    }
+  .pricing { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; }
+  .plan { background: #fff; border-radius: 12px; padding: 40px 20px; flex: 1 1 250px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: transform 0.3s; }
+  .plan:hover { transform: translateY(-8px); }
+  .plan h2 { color: #6c63ff; margin-bottom: 15px; }
+  .plan p { font-size: 0.9rem; margin-bottom: 20px; color: #666; }
+  .plan button { padding: 12px 25px; font-size: 1rem; border: none; border-radius: 8px; background: #6c63ff; color: #fff; cursor: pointer; transition: background 0.3s; }
+  .plan button:hover { background: #5751d1; }
 
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+  .testimonials { display: flex; flex-direction: column; gap: 30px; text-align: center; }
+  .testimonial { background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.05); max-width: 600px; margin: auto; }
+  .testimonial p { font-style: italic; margin-bottom: 15px; }
+  .testimonial span { font-weight: 600; color: #6c63ff; }
 
-    .content-section {
-      background: #1c1c1e;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  footer { background: #222; color: #fff; text-align: center; padding: 30px 20px; margin-top: 50px; }
+  footer a { color: #6c63ff; }
 
-    .text-options {
-      flex: 1 1 350px;
-      min-width: 300px;
-    }
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards; }
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.6s; }
+  .delay-3 { animation-delay: 0.9s; }
 
-    h1 {
-      font-size: 26px;
-      margin-bottom: 16px;
-    }
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    p.intro {
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 25px;
-    }
-
-    .option-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-start;
-    }
-
-    .option {
-      background: #29292c;
-      border-radius: 12px;
-      padding: 10px 12px 12px 12px;
-      width: 150px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .option:hover {
-      background: #333;
-      border-color: #4da6ff;
-      transform: scale(1.05);
-    }
-
-    .option.active {
-      border-color: #4da6ff;
-      background: #2e2e31;
-    }
-
-    .option i {
-      font-size: 26px;
-      color: #4da6ff;
-      margin-bottom: 4px;
-    }
-
-    .option h3 {
-      font-size: 14px;
-      margin: 4px 0;
-    }
-
-    .option p {
-      font-size: 11.5px;
-      margin-top: 4px;
-      color: #bbb;
-    }
-
-    .sub-options-wrapper {
-      margin-top: 25px;
-      border-top: 2px solid #444;
-      padding-top: 20px;
-    }
-
-    .sub-options-wrapper h2 {
-      color: #4da6ff;
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .sponsoring-link {
-      margin-top: 20px;
-    }
-
-    .sponsoring-link a {
-      background: #4da6ff;
-      color: #fff;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.3s;
-    }
-
-    .sponsoring-link a:hover {
-      background: #66b3ff;
-    }
-
-    .video-wrapper {
-      flex: 1 1 1px;
-      max-width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .video-wrapper video {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 10px 0px 100px 0px;
-      }
-
-      .content-section {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 16px;
-        margin: 0 10px;
-      }
-
-      .text-options {
-        width: 100%;
-      }
-
-      .option-group {
-        justify-content: center;
-      }
-
-      .option {
-        width: 100%;
-        max-width: 280px;
-        padding: 12px 16px;
-      }
-
-      .video-wrapper {
-        width: 100%;
-        max-width: 100%;
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
-
-      .video-wrapper video {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 9 / 16;
-        object-fit: cover;
-        display: block;
-      }
-    }
-  </style>
+  /* Responsive */
+  @media (max-width: 768px) {
+    .features, .pricing { flex-direction: column; align-items: center; }
+  }
+</style>
 </head>
 <body>
 
-  <video autoplay muted loop id="bg-video">
-    <source src="background.mp4" type="video/mp4" />
-  </video>
-
-  <div class="main-container">
-    <div class="content-section">
-      <div class="text-options">
-        <h1>Wie möchtest du VibeTastic unterstützen?</h1>
-        <p class="intro">
-          Wähle eine der beiden Möglichkeiten aus – entweder als
-          <strong>Sponsor</strong> ohne Gegenleistung oder als
-          <strong>Werbepartner</strong> mit entsprechender Sichtbarkeit auf
-          unseren Plattformen.
-        </p>
-
-        <div class="option-group" id="main-options">
-          <div class="option" data-type="sponsoring" id="sponsoring-option">
-            <i class="fas fa-heart"></i>
-            <h3>Sponsoring</h3>
-            <p>Ab 5.–/Monat<br />Unterstütze VibeTastic ohne Schnickschnack.</p>
-          </div>
-
-          <div class="option" data-type="werbepartner" id="werbepartner-option">
-            <i class="fas fa-bullhorn"></i>
-            <h3>Werbepartnerschaft</h3>
-            <p>Ab 40.–/Monat<br />Präsentiere dein Unternehmen an all unseren Events.</p>
-          </div>
-        </div>
-
-        <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
-          <h2>Sponsoring</h2>
-          <p>
-            Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem,
-            wie sehr dein Herz für VibeTastic schlägt ❤️
-          </p>
-          <p>
-            Falls du besonders grosszügig bist: <br /><strong>
-              Über das Feld "Menge" im Stripe-Checkout kannst du den Betrag in
-              5-Franken-Schritten einfach anpassen!
-            </strong>
-          </p>
-          <div class="sponsoring-link">
-            <a href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b" target="_blank">Jetzt Sponsor werden</a>
-          </div>
-        </div>
-
-        <div class="sub-options-wrapper hidden" id="sub-options-werbung">
-          <h2>Werbeform wählen (K1 – K3)</h2>
-          <div class="option-group">
-            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
-              <i class="fas fa-list"></i>
-              <h3>K1</h3>
-              <p>Listenformat mit Text – 480.–/Jahr</p>
-            </a>
-            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
-              <i class="fas fa-table"></i>
-              <h3>K2</h3>
-              <p>Tabellenformat mit Logo & Text – 1'440.–/Jahr</p>
-            </a>
-            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
-              <i class="fas fa-bullhorn"></i>
-              <h3>K3</h3>
-              <p>Ganzflächige Werbung – 8'400.–/Jahr</p>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="video-wrapper">
-        <video autoplay muted loop>
-          <source src="Vibetastic-Short-HD-V1_komprimiert.mp4" type="video/mp4" />
-        </video>
-      </div>
+<header>
+  <h1>Werde VibeTastic Partner</h1>
+  <p>Erreiche deine Zielgruppe direkt in Clubs, Events & Festivals – mit interaktiver Werbung auf unseren Screens!</p>
+  <button onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">Jetzt starten</button>
+</header>
+<section class="fade-in delay-2">
+  <h2 style="text-align:center; margin-bottom:50px;">Unser Partner-Video</h2>
+  <div style="max-width:400px; margin: auto; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1);">
+    <div style="position:relative; padding-top:177.78%;"> <!-- 9:16 Verhältnis -->
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+              style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" 
+              allowfullscreen></iframe>
     </div>
-    
-          </div> <!-- Ende text-options -->
+  </div>
+</section>
+<section class="fade-in delay-1">
+  <h2 style="text-align:center; margin-bottom:50px;">Unsere Vorteile</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Echte Reichweite</h3>
+      <p>Erreiche gezielt die Besucher deiner Ziellocations und erhöhe deine Markenpräsenz vor Ort.</p>
+    </div>
+    <div class="feature">
+      <h3>Interaktive Inhalte</h3>
+      <p>Stelle Inhalte auf unseren Screens dar, die Nutzer direkt über QR-Codes interagieren können.</p>
+    </div>
+    <div class="feature">
+      <h3>Einfaches Management</h3>
+      <p>Über unser Dashboard kannst du Kampagnen einfach erstellen, verwalten und analysieren.</p>
+    </div>
+  </div>
+</section>
 
-      <div class="video-wrapper">
-        <video autoplay muted loop>
-          <source src="promo.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div> <!-- Ende content-section -->
-  </div> <!-- Ende main-container -->
+<section id="plans" class="fade-in delay-2">
+  <h2 style="text-align:center; margin-bottom:50px;">Partner-Pläne</h2>
 
-  <script>
-    const sponsoringOption = document.getElementById("sponsoring-option");
-    const werbepartnerOption = document.getElementById("werbepartner-option");
+  <div class="pricing">
+    <div class="plan">
+      <h2>K1 - Text</h2>
+      <p>Einfacher Text-Listing-Slot auf den Screens.<br>CHF 480 / Jahr</p>
+      <button onclick="alert('K1 Plan gewählt!')">Jetzt buchen</button>
+    </div>
+    <div class="plan">
+      <h2>K2 - Logo + Text</h2>
+      <p>Tabellenformat mit Logo und Text, mittlere Sichtbarkeit.<br>CHF 1440 / Jahr</p>
+      <button onclick="alert('K2 Plan gewählt!')">Jetzt buchen</button>
+    </div>
+    <div class="plan">
+      <h2>K3 - Premium</h2>
+      <p>Ganzflächige Werbung auf Screens, Leinwänden & Beamern.<br>CHF 8400 / Jahr</p>
+      <button onclick="alert('K3 Plan gewählt!')">Jetzt buchen</button>
+    </div>
+  </div>
+</section>
 
-    const subSponsoring = document.getElementById("sub-options-sponsoring");
-    const subWerbung = document.getElementById("sub-options-werbung");
+<section class="fade-in delay-3">
+  <h2 style="text-align:center; margin-bottom:50px;">Was unsere Partner sagen</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>"Mit VibeTastic konnten wir unsere Event-Promotion massiv steigern – Besucher lieben die Interaktivität!"</p>
+      <span>- Club Manager, Zürich</span>
+    </div>
+    <div class="testimonial">
+      <p>"Die Werbeplattform ist super intuitiv und einfach zu bedienen. ROI war spürbar nach wenigen Wochen."</p>
+      <span>- Marketing Lead, Bern</span>
+    </div>
+    <div class="testimonial">
+      <p>"VibeTastic bringt unsere Marke direkt zu den Gästen. Kein anderes Medium ist so effizient vor Ort."</p>
+      <span>- Eventagentur, Basel</span>
+    </div>
+  </div>
+</section>
 
-    sponsoringOption.addEventListener("click", () => {
-      sponsoringOption.classList.add("active");
-      werbepartnerOption.classList.remove("active");
+<footer>
+  <p>© 2025 VibeTastic | <a href="#">Datenschutz & AGB</a> | <a href="#">Kontakt</a></p>
+</footer>
 
-      subSponsoring.classList.remove("hidden");
-      subWerbung.classList.add("hidden");
+<script>
+  // Scroll Fade-in Effekt
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
     });
+  }, appearOptions);
 
-    werbepartnerOption.addEventListener("click", () => {
-      werbepartnerOption.classList.add("active");
-      sponsoringOption.classList.remove("active");
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
 
-      subWerbung.classList.remove("hidden");
-      subSponsoring.classList.add("hidden");
-    });
-  </script>
 </body>
 </html>
- 
