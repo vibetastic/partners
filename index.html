@@ -17,7 +17,7 @@
       padding: 0px 0px 200px 0px;
     }
 
-    /* Hintergrundvideo global als echter Hintergrund fixieren */
+    /* Hintergrundvideo global fixieren */
     #bg-video {
       position: fixed;
       top: 0;
@@ -35,13 +35,11 @@
       margin: 0 auto;
     }
 
-    /* Content mit Text + Video nebeneinander */
     .content-section {
       background: #1c1c1e;
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-
       display: flex;
       gap: 30px;
       align-items: flex-start;
@@ -75,8 +73,8 @@
     .option {
       background: #29292c;
       border-radius: 12px;
-      padding: 20px;
-      width: 120px;
+      padding: 10px 12px 12px 12px;
+      width: 150px;
       cursor: pointer;
       text-align: center;
       transition: all 0.3s ease;
@@ -97,19 +95,19 @@
     }
 
     .option i {
-      font-size: 34px;
+      font-size: 26px;
       color: #4da6ff;
-      margin-bottom: 10px;
+      margin-bottom: 4px;
     }
 
     .option h3 {
-      margin: 0;
-      font-size: 18px;
+      font-size: 14px;
+      margin: 4px 0;
     }
 
     .option p {
-      font-size: 14px;
-      margin-top: 8px;
+      font-size: 11.5px;
+      margin-top: 4px;
       color: #bbb;
     }
 
@@ -148,12 +146,11 @@
       background: #66b3ff;
     }
 
-    /* Video rechts neben dem Text */
     .video-wrapper {
-      flex: 1 1 1px;          /* statt 15px */
+      flex: 1 1 1px;
       max-width: 100%;
       border-radius: 12px;
-      overflow: hidden;          /* FIX: gültiger Wert */
+      overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
@@ -168,40 +165,9 @@
       object-fit: cover;
     }
 
-    /* zweite (verkleinerte) Option-Variante wie in deinem Code beibehalten */
-    .option {
-      background: #29292c;
-      border-radius: 12px;
-      padding: 10px 12px 12px 12px; /* weniger Padding oben */
-      width: 150px;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .option i {
-      font-size: 26px; /* etwas kleiner */
-      color: #4da6ff;
-      margin-bottom: 4px; /* weniger Abstand zum Titel */
-    }
-
-    .option h3 {
-      font-size: 14px; /* kleinerer Titeltext */
-      margin: 4px 0;
-    }
-
-    .option p {
-      font-size: 11.5px; /* kleinerer Beschreibungstext */
-      margin-top: 4px;
-      color: #bbb;
-    }
-
     @media (max-width: 768px) {
       body {
-        padding: 10px 0px 100px 0px; /* Weniger Padding oben und unten */
+        padding: 10px 0px 100px 0px;
       }
 
       .content-section {
@@ -235,7 +201,7 @@
       .video-wrapper video {
         width: 100%;
         height: auto;
-        aspect-ratio: 9 / 16; /* Wichtig für mobile Höhe */
+        aspect-ratio: 9 / 16;
         object-fit: cover;
         display: block;
       }
@@ -243,6 +209,10 @@
   </style>
 </head>
 <body>
+
+  <video autoplay muted loop id="bg-video">
+    <source src="background.mp4" type="video/mp4" />
+  </video>
 
   <div class="main-container">
     <div class="content-section">
@@ -269,10 +239,7 @@
           </div>
         </div>
 
-        <div
-          class="sub-options-wrapper hidden"
-          id="sub-options-sponsoring"
-        >
+        <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
           <h2>Sponsoring</h2>
           <p>
             Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem,
@@ -285,94 +252,72 @@
             </strong>
           </p>
           <div class="sponsoring-link">
-            <a
-              href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b"
-              target="_blank"
-              >Jetzt Sponsor werden</a
-            >
+            <a href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b" target="_blank">Jetzt Sponsor werden</a>
           </div>
         </div>
 
         <div class="sub-options-wrapper hidden" id="sub-options-werbung">
           <h2>Werbeform wählen (K1 – K3)</h2>
           <div class="option-group">
-            <a
-              class="option"
-              href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a"
-              target="_blank"
-            >
+            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
               <i class="fas fa-list"></i>
-              <h3>K1 – Listenformat</h3>
-              <p>
-                <strong>40.–/Monat</strong><br />
-                12 Monate Listenplatz an allen Events mittels Text.<br />
-                Wir kontaktieren dich nach dem Kauf.
-              </p>
+              <h3>K1</h3>
+              <p>Listenformat mit Text – 480.–/Jahr</p>
             </a>
-            <a
-              class="option"
-              href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09"
-              target="_blank"
-            >
+            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
               <i class="fas fa-table"></i>
-              <h3>K2 – Tabellenformat</h3>
-              <p>
-                <strong>120.–/Monat</strong><br />
-                12 Monate Tabellenplatz an allen Events mittels Text und
-                Logo.<br />
-                Wir kontaktieren dich nach dem Kauf.
-              </p>
+              <h3>K2</h3>
+              <p>Tabellenformat mit Logo & Text – 1'440.–/Jahr</p>
             </a>
-            <a
-              class="option"
-              href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08"
-              target="_blank"
-            >
-              <i class="fas fa-tv"></i>
-              <h3>K3 – Fullscreen</h3>
-              <p>
-                <strong>700.–/Monat</strong><br />
-                12 Monate Fullscreen-Anzeige an allen Events.<br />
-                Wir kontaktieren dich nach dem Kauf.
-              </p>
+            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
+              <i class="fas fa-bullhorn"></i>
+              <h3>K3</h3>
+              <p>Ganzflächige Werbung – 8'400.–/Jahr</p>
             </a>
           </div>
         </div>
       </div>
 
       <div class="video-wrapper">
-        <!-- Rechtes Video: NICHT stummgeschaltet -->
-        <video playsinline controls>
-          <source src="https://github.com/vibetastic/partners/raw/main/Vibetastic-Short-HD-V1_komprimiert.mp4" type="video/mp4" />
-          Dein Browser unterstützt kein HTML5-Video.
+        <video autoplay muted loop>
+          <source src="Vibetastic-Short-HD-V1_komprimiert.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
-  </div>
+    
+          </div> <!-- Ende text-options -->
+
+      <div class="video-wrapper">
+        <video autoplay muted loop>
+          <source src="promo.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div> <!-- Ende content-section -->
+  </div> <!-- Ende main-container -->
 
   <script>
     const sponsoringOption = document.getElementById("sponsoring-option");
     const werbepartnerOption = document.getElementById("werbepartner-option");
-    const sponsoringWrapper = document.getElementById("sub-options-sponsoring");
-    const werbungWrapper = document.getElementById("sub-options-werbung");
+
+    const subSponsoring = document.getElementById("sub-options-sponsoring");
+    const subWerbung = document.getElementById("sub-options-werbung");
 
     sponsoringOption.addEventListener("click", () => {
-      sponsoringWrapper.classList.remove("hidden");
-      werbungWrapper.classList.add("hidden");
-      document
-        .querySelectorAll("#main-options .option")
-        .forEach((o) => o.classList.remove("active"));
       sponsoringOption.classList.add("active");
+      werbepartnerOption.classList.remove("active");
+
+      subSponsoring.classList.remove("hidden");
+      subWerbung.classList.add("hidden");
     });
 
     werbepartnerOption.addEventListener("click", () => {
-      werbungWrapper.classList.remove("hidden");
-      sponsoringWrapper.classList.add("hidden");
-      document
-        .querySelectorAll("#main-options .option")
-        .forEach((o) => o.classList.remove("active"));
       werbepartnerOption.classList.add("active");
+      sponsoringOption.classList.remove("active");
+
+      subWerbung.classList.remove("hidden");
+      subSponsoring.classList.add("hidden");
     });
   </script>
 </body>
 </html>
+ 
