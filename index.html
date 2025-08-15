@@ -207,23 +207,23 @@
   }
 
 .video-wrapper {
-  width: 100%;
+  flex: 1 1 350px;
   max-width: 100%;
-  margin-top: 0;
-  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden; /* WICHTIG: damit nix rausläuft */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .video-wrapper video {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 16; /* Wichtig für mobile Höhe */
-  object-fit: cover;
-  display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: cover; /* Skaliert sauber */
 }
-
 
   .sub-options-wrapper {
     padding-top: 10px;
