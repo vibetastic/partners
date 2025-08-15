@@ -22,13 +22,11 @@
       margin: 0 auto;
     }
 
-    /* Content mit Text + Video nebeneinander */
     .content-section {
       background: #1c1c1e;
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-
       display: flex;
       gap: 30px;
       align-items: flex-start;
@@ -135,143 +133,141 @@
       background: #66b3ff;
     }
 
-    /* Video rechts neben dem Text */
+    /* Video rechts */
     .video-wrapper {
-      flex: 1 1 15px;
+      flex: 1 1 350px;
       max-width: 100%;
       border-radius: 12px;
-      overflow:
+      overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .video-wrapper video {
       display: block;
-      width: 87%;
+      width: 100%;
       height: auto;
       aspect-ratio: 9 / 16;
+      object-fit: cover;
     }
+
     .option {
-  background: #29292c;
-  border-radius: 12px;
-  padding: 10px 12px 12px 12px; /* weniger Padding oben */
-  width: 150px;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  color: #fff;
-  text-decoration: none;
-}
+      background: #29292c;
+      border-radius: 12px;
+      padding: 10px 12px 12px 12px;
+      width: 150px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      color: #fff;
+      text-decoration: none;
+    }
 
-.option i {
-  font-size: 26px; /* etwas kleiner */
-  color: #4da6ff;
-  margin-bottom: 4px; /* weniger Abstand zum Titel */
-}
+    .option i {
+      font-size: 26px;
+      color: #4da6ff;
+      margin-bottom: 4px;
+    }
 
-.option h3 {
-  font-size: 14px; /* kleinerer Titeltext */
-  margin: 4px 0;
-}
+    .option h3 {
+      font-size: 14px;
+      margin: 4px 0;
+    }
 
-.option p {
-  font-size: 11.5px; /* kleinerer Beschreibungstext */
-  margin-top: 4px;
-  color: #bbb;
-}
+    .option p {
+      font-size: 11.5px;
+      margin-top: 4px;
+      color: #bbb;
+    }
 
-@media (max-width: 768px) {
-  body {
-    padding: 10px 0px 100px 0px; /* Weniger Padding oben und unten */
-  }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px 0px 100px 0px;
+      }
 
-  .content-section {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 16px;
-    margin: 0 10px;
-  }
+      .content-section {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+        margin: 0 10px;
+      }
 
-  .text-options {
-    width: 100%;
-  }
+      .text-options {
+        width: 100%;
+      }
 
-  .option-group {
-    justify-content: center;
-  }
+      .option-group {
+        justify-content: center;
+      }
 
-  .option {
-    width: 100%;
-    max-width: 280px;
-    padding: 12px 16px;
-  }
+      .option {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 16px;
+      }
 
-.video-wrapper {
-  flex: 1 1 350px;
-  max-width: 100%;
-  border-radius: 12px;
-  overflow: hidden; /* WICHTIG: damit nix rausläuft */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      .video-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
 
-.video-wrapper video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 9 / 16;
-  object-fit: cover; /* Skaliert sauber */
-}
+      .video-wrapper video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 9 / 16;
+        object-fit: cover;
+      }
 
-  .sub-options-wrapper {
-    padding-top: 10px;
-  }
+      .sub-options-wrapper {
+        padding-top: 10px;
+      }
 
-  h1 {
-    font-size: 22px;
-  }
+      h1 {
+        font-size: 22px;
+      }
 
-  .intro {
-    font-size: 14px;
-  }
+      .intro {
+        font-size: 14px;
+      }
 
-  .option h3 {
-    font-size: 16px;
-  }
+      .option h3 {
+        font-size: 16px;
+      }
 
-  .option p {
-    font-size: 12px;
-  }
+      .option p {
+        font-size: 12px;
+      }
 
-  .sponsoring-link a {
-    width: 100%;
-    text-align: center;
-  }
+      .sponsoring-link a {
+        width: 100%;
+        text-align: center;
+      }
 
-  #bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100vw;
-    min-height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.1;
-    pointer-events: none;
-  }
-}
-
-}
+      #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100vw;
+        min-height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0.1;
+        pointer-events: none;
+      }
     }
   </style>
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
-  <source src="video2.mp4" type="video/mp4" />
-  Dein Browser unterstützt kein HTML5-Video.
-</video>
+    <source src="video2.mp4" type="video/mp4" />
+    Dein Browser unterstützt kein HTML5-Video.
+  </video>
+
   <div class="main-container">
     <div class="content-section">
       <div class="text-options">
@@ -297,10 +293,7 @@
           </div>
         </div>
 
-        <div
-          class="sub-options-wrapper hidden"
-          id="sub-options-sponsoring"
-        >
+        <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
           <h2>Sponsoring</h2>
           <p>
             Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem,
@@ -313,53 +306,35 @@
             </strong>
           </p>
           <div class="sponsoring-link">
-            <a
-              href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b"
-              target="_blank"
-              >Jetzt Sponsor werden</a
-            >
+            <a href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b" target="_blank">
+              Jetzt Sponsor werden
+            </a>
           </div>
         </div>
 
         <div class="sub-options-wrapper hidden" id="sub-options-werbung">
           <h2>Werbeform wählen (K1 – K3)</h2>
           <div class="option-group">
-            <a
-              class="option"
-              href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a"
-              target="_blank"
-            >
+            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
               <i class="fas fa-list"></i>
               <h3>K1 – Listenformat</h3>
-              <p>
-                <strong>40.–/Monat</strong><br />
+              <p><strong>40.–/Monat</strong><br />
                 12 Monate Listenplatz an allen Events mittels Text.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
             </a>
-            <a
-              class="option"
-              href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09"
-              target="_blank"
-            >
+            <a class="option" href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09" target="_blank">
               <i class="fas fa-table"></i>
               <h3>K2 – Tabellenformat</h3>
-              <p>
-                <strong>120.–/Monat</strong><br />
-                12 Monate Tabellenplatz an allen Events mittels Text und
-                Logo.<br />
+              <p><strong>120.–/Monat</strong><br />
+                12 Monate Tabellenplatz an allen Events mittels Text und Logo.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
             </a>
-            <a
-              class="option"
-              href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08"
-              target="_blank"
-            >
+            <a class="option" href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08" target="_blank">
               <i class="fas fa-tv"></i>
               <h3>K3 – Fullscreen</h3>
-              <p>
-                <strong>700.–/Monat</strong><br />
+              <p><strong>700.–/Monat</strong><br />
                 12 Monate Fullscreen-Anzeige an allen Events.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
@@ -370,7 +345,7 @@
 
       <div class="video-wrapper">
         <video autoplay playsinline controls muted>
-          <source src="https://github.com/vibetastic/partners/blob/main/Vibetastic-Short-HD-V1_komprimiert.mp4" type="https://github.com/vibetastic/partners/blob/main/Vibetastic-Short-HD-V1_komprimiert.mp4" />
+          <source src="https://github.com/vibetastic/partners/raw/main/Vibetastic-Short-HD-V1_komprimiert.mp4" type="video/mp4" />
           Dein Browser unterstützt kein HTML5-Video.
         </video>
       </div>
@@ -386,8 +361,7 @@
     sponsoringOption.addEventListener("click", () => {
       sponsoringWrapper.classList.remove("hidden");
       werbungWrapper.classList.add("hidden");
-      document
-        .querySelectorAll("#main-options .option")
+      document.querySelectorAll("#main-options .option")
         .forEach((o) => o.classList.remove("active"));
       sponsoringOption.classList.add("active");
     });
@@ -395,8 +369,7 @@
     werbepartnerOption.addEventListener("click", () => {
       werbungWrapper.classList.remove("hidden");
       sponsoringWrapper.classList.add("hidden");
-      document
-        .querySelectorAll("#main-options .option")
+      document.querySelectorAll("#main-options .option")
         .forEach((o) => o.classList.remove("active"));
       werbepartnerOption.classList.add("active");
     });
