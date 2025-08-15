@@ -17,16 +17,31 @@
       padding: 0px 0px 200px 0px;
     }
 
+    /* Hintergrundvideo global als echter Hintergrund fixieren */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+
     .main-container {
       max-width: 1200px;
       margin: 0 auto;
     }
 
+    /* Content mit Text + Video nebeneinander */
     .content-section {
       background: #1c1c1e;
       padding: 30px;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+
       display: flex;
       gap: 30px;
       align-items: flex-start;
@@ -133,12 +148,12 @@
       background: #66b3ff;
     }
 
-    /* Video rechts */
+    /* Video rechts neben dem Text */
     .video-wrapper {
-      flex: 1 1 350px;
+      flex: 1 1 350px;          /* statt 15px */
       max-width: 100%;
       border-radius: 12px;
-      overflow: hidden;
+      overflow: hidden;          /* FIX: gültiger Wert */
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
@@ -153,10 +168,11 @@
       object-fit: cover;
     }
 
+    /* zweite (verkleinerte) Option-Variante wie in deinem Code beibehalten */
     .option {
       background: #29292c;
       border-radius: 12px;
-      padding: 10px 12px 12px 12px;
+      padding: 10px 12px 12px 12px; /* weniger Padding oben */
       width: 150px;
       cursor: pointer;
       text-align: center;
@@ -167,25 +183,25 @@
     }
 
     .option i {
-      font-size: 26px;
+      font-size: 26px; /* etwas kleiner */
       color: #4da6ff;
-      margin-bottom: 4px;
+      margin-bottom: 4px; /* weniger Abstand zum Titel */
     }
 
     .option h3 {
-      font-size: 14px;
+      font-size: 14px; /* kleinerer Titeltext */
       margin: 4px 0;
     }
 
     .option p {
-      font-size: 11.5px;
+      font-size: 11.5px; /* kleinerer Beschreibungstext */
       margin-top: 4px;
       color: #bbb;
     }
 
     @media (max-width: 768px) {
       body {
-        padding: 10px 0px 100px 0px;
+        padding: 10px 0px 100px 0px; /* Weniger Padding oben und unten */
       }
 
       .content-section {
@@ -219,50 +235,15 @@
       .video-wrapper video {
         width: 100%;
         height: auto;
-        aspect-ratio: 9 / 16;
+        aspect-ratio: 9 / 16; /* Wichtig für mobile Höhe */
         object-fit: cover;
-      }
-
-      .sub-options-wrapper {
-        padding-top: 10px;
-      }
-
-      h1 {
-        font-size: 22px;
-      }
-
-      .intro {
-        font-size: 14px;
-      }
-
-      .option h3 {
-        font-size: 16px;
-      }
-
-      .option p {
-        font-size: 12px;
-      }
-
-      .sponsoring-link a {
-        width: 100%;
-        text-align: center;
-      }
-
-      #bg-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100vw;
-        min-height: 100vh;
-        object-fit: cover;
-        z-index: -1;
-        opacity: 0.1;
-        pointer-events: none;
+        display: block;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Hintergrundvideo (bleibt stumm) -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="video2.mp4" type="video/mp4" />
     Dein Browser unterstützt kein HTML5-Video.
@@ -293,7 +274,10 @@
           </div>
         </div>
 
-        <div class="sub-options-wrapper hidden" id="sub-options-sponsoring">
+        <div
+          class="sub-options-wrapper hidden"
+          id="sub-options-sponsoring"
+        >
           <h2>Sponsoring</h2>
           <p>
             Ganz einfach: Du spendest monatlich 5.– CHF oder mehr – je nachdem,
@@ -306,35 +290,53 @@
             </strong>
           </p>
           <div class="sponsoring-link">
-            <a href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b" target="_blank">
-              Jetzt Sponsor werden
-            </a>
+            <a
+              href="https://buy.stripe.com/cNi4gAcefdbDcHUatHd7q0b"
+              target="_blank"
+              >Jetzt Sponsor werden</a
+            >
           </div>
         </div>
 
         <div class="sub-options-wrapper hidden" id="sub-options-werbung">
           <h2>Werbeform wählen (K1 – K3)</h2>
           <div class="option-group">
-            <a class="option" href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a" target="_blank">
+            <a
+              class="option"
+              href="https://buy.stripe.com/28E4gAguv1sVeQ259nd7q0a"
+              target="_blank"
+            >
               <i class="fas fa-list"></i>
               <h3>K1 – Listenformat</h3>
-              <p><strong>40.–/Monat</strong><br />
+              <p>
+                <strong>40.–/Monat</strong><br />
                 12 Monate Listenplatz an allen Events mittels Text.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
             </a>
-            <a class="option" href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09" target="_blank">
+            <a
+              class="option"
+              href="https://buy.stripe.com/7sYeVe2DF0oRdLY31fd7q09"
+              target="_blank"
+            >
               <i class="fas fa-table"></i>
               <h3>K2 – Tabellenformat</h3>
-              <p><strong>120.–/Monat</strong><br />
-                12 Monate Tabellenplatz an allen Events mittels Text und Logo.<br />
+              <p>
+                <strong>120.–/Monat</strong><br />
+                12 Monate Tabellenplatz an allen Events mittels Text und
+                Logo.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
             </a>
-            <a class="option" href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08" target="_blank">
+            <a
+              class="option"
+              href="https://buy.stripe.com/7sYbJ21zBfjL9vI0T7d7q08"
+              target="_blank"
+            >
               <i class="fas fa-tv"></i>
               <h3>K3 – Fullscreen</h3>
-              <p><strong>700.–/Monat</strong><br />
+              <p>
+                <strong>700.–/Monat</strong><br />
                 12 Monate Fullscreen-Anzeige an allen Events.<br />
                 Wir kontaktieren dich nach dem Kauf.
               </p>
@@ -344,7 +346,8 @@
       </div>
 
       <div class="video-wrapper">
-        <video autoplay playsinline controls muted>
+        <!-- Rechtes Video: NICHT stummgeschaltet -->
+        <video autoplay playsinline controls>
           <source src="https://github.com/vibetastic/partners/raw/main/Vibetastic-Short-HD-V1_komprimiert.mp4" type="video/mp4" />
           Dein Browser unterstützt kein HTML5-Video.
         </video>
@@ -361,7 +364,8 @@
     sponsoringOption.addEventListener("click", () => {
       sponsoringWrapper.classList.remove("hidden");
       werbungWrapper.classList.add("hidden");
-      document.querySelectorAll("#main-options .option")
+      document
+        .querySelectorAll("#main-options .option")
         .forEach((o) => o.classList.remove("active"));
       sponsoringOption.classList.add("active");
     });
@@ -369,7 +373,8 @@
     werbepartnerOption.addEventListener("click", () => {
       werbungWrapper.classList.remove("hidden");
       sponsoringWrapper.classList.add("hidden");
-      document.querySelectorAll("#main-options .option")
+      document
+        .querySelectorAll("#main-options .option")
         .forEach((o) => o.classList.remove("active"));
       werbepartnerOption.classList.add("active");
     });
